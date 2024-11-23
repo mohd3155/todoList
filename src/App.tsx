@@ -11,7 +11,7 @@ function App() {
 
 
   return (
-    <div className='w-screen h-screen flex flex-col justify-center items-center'>
+    <div className='w-screen h-screen flex flex-col justify-center items-center bg-[#1e2732]	'>
       <TasksContext.Provider value={{tasks : tasks.filteredTasks,dispatch}}>
         <AddTask/>
         <TasksList />

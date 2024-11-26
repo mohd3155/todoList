@@ -1,21 +1,15 @@
-import { useReducer } from 'react'
-import TaskReducer, { initialState } from './reducers/tasksReducer'
 import AddTask from './components/AddTask'
 import TasksList from './components/TasksList'
+import {TasksProvider} from './contexts/tasksContexts'
 import './App.css'
-import TasksContext from './contexts/tasksContexts'
 
 function App() {
-  const [tasks,dispatch] = useReducer(TaskReducer,initialState)
-
-
-
   return (
     <div className='w-screen h-screen flex flex-col justify-center items-center bg-[#1e2732]	'>
-      <TasksContext.Provider value={{tasks : tasks.filteredTasks,dispatch}}>
+      <TasksProvider>
         <AddTask/>
         <TasksList />
-      </TasksContext.Provider>
+      </TasksProvider>
     </div>
   )
 }

@@ -35,7 +35,7 @@ https://mohd-todolist.netlify.app/
   ### Unit Testing:
   - **Jest**: Dispatches the ADD action when the form of adding a new task is submitted.
   ### End-to-End Testing:
-  - **Playwright** : Add a new task and change the its status to completed and verify it appears in the completed tasks list.
+  - **Playwright** : Add a new task and change its status to completed and verify it appears in the completed tasks list.
 
   ## Installation and Setup 🛠️
 

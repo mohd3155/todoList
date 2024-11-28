@@ -16,12 +16,13 @@ const tasks = [{
     status : "Active"
 }] as const
 
-    test("Add a new task and change the its status to completed and verify it appears in the completed tasks list",async ({page})=>{
+    test("Add a new task and change its status to completed and verify it appears in the completed tasks list",async ({page})=>{
         await page.getByPlaceholder("Task Title").fill(tasks[0].task);
         await page.getByPlaceholder("Description").fill(tasks[0].description);
         await page.getByRole("status").selectOption(tasks[0].status);
         await page.getByRole("button").click();
         
+
         await page.getByTestId("change-status").selectOption("Completed")
 
         

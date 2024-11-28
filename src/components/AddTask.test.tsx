@@ -16,7 +16,7 @@ describe("AddTask Component", () => {
     fireEvent.change(getByPlaceholderText("Description"), {
       target: { value: "Test Description" },
     });
-    fireEvent.change(getByRole("combobox"), {
+    fireEvent.change(getByRole("status"), {
       target: { value: "active" },
     });
 

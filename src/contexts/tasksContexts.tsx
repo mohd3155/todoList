@@ -3,6 +3,7 @@ import TaskReducer, { initialState, Task, TaskAction } from "../reducers/tasksRe
 
 interface TaskContextType {
     tasks:Task[],
+    filter: string,
     dispatch : Dispatch<TaskAction>
 }
 
@@ -12,7 +13,7 @@ export const TasksProvider: FC<{children: ReactNode}> = (props: {children:ReactN
     const [tasks,dispatch] = useReducer(TaskReducer,initialState)
 
     return (
-        <TasksContext.Provider value={{tasks: tasks.filteredTasks, dispatch}}>
+        <TasksContext.Provider value={{tasks: tasks.filteredTasks, filter: tasks.filter, dispatch}}>
             {props.children}
         </TasksContext.Provider>
     )

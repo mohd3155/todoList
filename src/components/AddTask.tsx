@@ -35,7 +35,7 @@ const AddTask =()=>{
         })}>
             <div className="2xl:w-2/3 lg:w-3/4  xs:w-full lg:h-1/4 sm:h-2/5 2xl:flex-row lg:flex-row 2xl:justify-between 2xl:items-center xs:flex xs:flex-col xs:justify-center xs:items-center lg:space-x-5 lg:space-y-0 xs:space-x-0 xs:space-y-3">
                 <input {...register("task")}  type="text" className="2xl:w-2/4 xs:w-3/4 lg:h-3/4 xs:h-2/4 xs:px-2 2xl:rounded-3xl sm:rounded-2xl xs:rounded-lg xs:border xs:border-white xs:bg-[#1e2732] xs:text-white" placeholder="Task Title" required/>
-                <select role="status" {...register("status")} className="2xl:w-2/4 lg:h-3/4 xs:h-2/4 2xl:rounded-3xl sm:rounded-2xl xs:rounded-lg xs:w-3/4 xs:px-2 xs:border xs:border-white xs:bg-[#1e2732] xs:text-white" required>
+                <select role="combobox" {...register("status")} className="2xl:w-2/4 lg:h-3/4 xs:h-2/4 2xl:rounded-3xl sm:rounded-2xl xs:rounded-lg xs:w-3/4 xs:px-2 xs:border xs:border-white xs:bg-[#1e2732] xs:text-white" required>
                     <option value="">Status</option>
                     <option value="Active">Active</option>
                     <option value="Completed">Completed</option>

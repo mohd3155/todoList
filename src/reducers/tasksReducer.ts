@@ -7,7 +7,8 @@ export interface Task{
 
  interface TaskState{
     allTasks : Task[],
-    filteredTasks: Task[];
+    filter: string,
+    filteredTasks: Task[],
  }
 
  interface AddTask{
@@ -35,6 +36,7 @@ export type TaskAction = AddTask | DeleteTask | ChangeStauts | FilterTask;
 
 export const initialState: TaskState = {
     allTasks: [], 
+    filter: "all",
     filteredTasks: [], 
   };
 
@@ -44,7 +46,8 @@ const TaskReducer = (tasks:TaskState , action:TaskAction): TaskState => {
             const newTaskList = [action.task, ...tasks.filteredTasks];
             const updatedTasks = [action.task, ...tasks.allTasks];
             return {
-                allTasks : updatedTasks,
+                ...tasks,
+                allTasks: updatedTasks,
                 filteredTasks : newTaskList
             };
 
@@ -52,6 +55,7 @@ const TaskReducer = (tasks:TaskState , action:TaskAction): TaskState => {
             const filteredAfterDelete = tasks.filteredTasks.filter(task => task.id !== action.taskId)
             const allAfterDelete = tasks.allTasks.filter(task => task.id !== action.taskId)
             return{
+                ...tasks,
                 allTasks : allAfterDelete,
                 filteredTasks : filteredAfterDelete
             }
@@ -60,17 +64,18 @@ const TaskReducer = (tasks:TaskState , action:TaskAction): TaskState => {
             const filteredAfterChange = tasks.filteredTasks.map(task => task.id === action.taskId ? {...task, status:action.value} : task)
             const allAfterChange = tasks.allTasks.map(task => task.id === action.taskId ? {...task , status:action.value}:task)
             return{
+                ...tasks,
                 allTasks : filteredAfterChange,
                 filteredTasks : allAfterChange
             }
         case "FILTER" :
             if(action.value === "all"){
                 return {
-                    ...tasks, filteredTasks: tasks.allTasks
+                    ...tasks, filteredTasks: tasks.allTasks, filter: action.value
                 }
             }
             return{
-                ...tasks, filteredTasks : tasks.allTasks.filter(task => task.status === action.value)
+                ...tasks, filteredTasks : tasks.allTasks.filter(task => task.status === action.value), filter: action.value
             }
 
             default:

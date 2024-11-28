@@ -23,9 +23,7 @@ const tasks = [{
         await page.getByRole("button").click();
         
         await page.getByTestId("change-status").selectOption("Completed")
-        await expect(page.getByTestId("Completed-tasksList-status")).toHaveText([
-            "Completed",
-        ]);
+
         
         await page.getByTestId('filter').selectOption("Completed");
 

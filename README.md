@@ -1,50 +1,64 @@
-# React + TypeScript + Vite
+# Todo List Application 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and fully responsive Todo List application built using React with TypeScript and styled with Tailwind CSS. This project emphasizes functionality, mobile-first design, and testing to deliver a robust solution for managing tasks.
 
-Currently, two official plugins are available:
+### Live Link : 
+https://mohd-todolist.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features 📋
+- Add a New Todo: Easily add tasks to your list.
+- Mark as Complete: Mark tasks as completed to track your progress.
+- Delete Todos: Remove tasks that are no longer needed.
+- Filter Options: View tasks by:
+  * All
+  * Active
+  * Completed
 
-## Expanding the ESLint configuration
+## Technology Stack 🛠️
+  - **Framework**: Vite (React TypeScript template)
+  - **Language**: TypeScript
+  - **Package Manager**: Yarn
+  - **Styling**: Tailwind CSS
+  - **Linting**: ESLint (basic setup)
+  - **Testing**:
+    * **Jest** for unit testing
+    * **Playwright** for end-to-end testing
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+  ## Design Requirements 🎨
+  - **Mobile-First Design**: The application is optimized for mobile screens using Tailwind CSS utilities.
+  - **Responsiveness**: Scales seamlessly across various screen sizes.
 
-- Configure the top-level `parserOptions` property like this:
+  ## State Management 🗂️
+  - Local state or tools such as React reducer and Context API manage application state. No backend or API is used.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+  ## Testing 🧪
+  ### Unit Testing:
+  - **Jest**: Dispatches the ADD action when the form of adding a new task is submitted.
+  ### End-to-End Testing:
+  - **Playwright** : Add a new task and change the its status to completed and verify it appears in the completed tasks list.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+  ## Installation and Setup 🛠️
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+  1- Clone the Repository:
+  ```bash
+  git clone https://github.com/mohd3155/todoList.git
+  cd todoList
+  ```
+  2- Install Dependencies:
+  ```bash
+  yarn 
+  ```
+  3- Run the Application:
+  ```bash
+  yarn dev
+  ```
+  4- Run Unit Tests:
+  ```bash
+  yarn test AddTask.test.tsx
+  ```
+  5- Run End-to-End Tests:
+  ```bash
+  yarn dev
+  yarn playwright test
+  ``` 
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```

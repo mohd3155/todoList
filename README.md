@@ -58,7 +58,6 @@ https://mohd-todolist.netlify.app/
   ```
   5- Run End-to-End Tests:
   ```bash
-  yarn dev
   yarn playwright test
   ``` 
 
